@@ -1,4 +1,6 @@
 public class Player {
+    static final int SIZE = 10;
+
     public static void main(String[] args) {
         Speaker speaker = new Speaker();
         StreamAudioPlayer streamAudioP = new StreamAudioPlayer();
@@ -14,6 +16,10 @@ public class Player {
         streamVideoP.openSpeaker(speaker);
 
         System.out.println(streamPictureP.dealSpeaker());
+
+        Integer[] numList = new Integer[SIZE];
+        int[] munList = new int[SIZE];
+        String[] strList = {"yes", "no"};
     }
 }
 
