@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 
 public class MyArray {
     protected Integer[] array;
@@ -33,6 +36,13 @@ public class MyArray {
     }
 
     public static void main(String[] args) {
+        Date date = new Date();
+        String nowDate = date.toString();
+        System.out.println("Now is " + nowDate);
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        System.out.println("Formatted time is " + ft.format(date));
+        System.out.println("\n");
+
         Integer[] array = {9, 0, 7, 1, 2, 3, 4, 5};
         MyArray myArray = new MyArray(array, array.length);
         Integer[] ownArray = myArray.printArray();
