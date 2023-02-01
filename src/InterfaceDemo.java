@@ -1,3 +1,7 @@
+/**
+ * Create by xuefeng on 2023.1.31
+ */
+
 public class InterfaceDemo {
     public static void main(String... args) {
         Compute compute = new Compute();

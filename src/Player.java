@@ -1,3 +1,7 @@
+/**
+ * Create by xuefeng on 2023.1.29
+ */
+
 public class Player {
     static final int SIZE = 10;
 

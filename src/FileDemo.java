@@ -15,6 +15,10 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedInputStream;
 
 
+/**
+ * Create by xuefeng on 2023.2.1
+ */
+
 public class FileDemo {
     public static void main(String[] args) throws FileNotFoundException {
         Operate operate = new Operate();
@@ -56,9 +60,9 @@ class BaseFile {
     private void createFile() {
         try {
             boolean result = file.createNewFile();
-            if(result) {
+            if (result) {
                 System.out.println("文件已成功创建！");
-            }else {
+            } else {
                 System.out.println("文件未成功创建！");
             }
         } catch (IOException e) {
@@ -67,14 +71,14 @@ class BaseFile {
     }
 
     public void createNewFile() {
-        if(!this.file.exists()) {
+        if (!this.file.exists()) {
             this.createFile();
-        }else {
+        } else {
             System.out.println("文件已存在，进行覆盖！");
             boolean result = file.delete();
-            if(result) {
+            if (result) {
                 this.createFile();
-            }else {
+            } else {
                 System.out.println("覆盖失败...");
                 System.exit(0);
             }
@@ -90,14 +94,14 @@ class FileExample extends BaseFile implements FileOperation {
 
     public void writeSomeToFile() {
         String content = "Java纯面向对象语言，非常纯粹！";
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (FileWriter fileWriter = new FileWriter(this.file)) {
                 fileWriter.write(content);
                 System.out.println("数据已成功写入！");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法写入！");
             System.exit(0);
         }
@@ -112,7 +116,7 @@ class FileExample extends BaseFile implements FileOperation {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法读取！");
             System.exit(0);
         }
@@ -128,14 +132,14 @@ class FileStreamExample extends BaseFile implements FileOperation {
     public void writeSomeToFile() {
         String content = "从C -> Python -> Java 循序渐进";
         byte[] byteContent = content.getBytes();
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (FileOutputStream out = new FileOutputStream(this.file)) {
                 out.write(byteContent);
                 System.out.println("数据已成功写入！");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法写入！");
             System.exit(0);
         }
@@ -143,14 +147,14 @@ class FileStreamExample extends BaseFile implements FileOperation {
 
     public void readSomeFromFile() {
         byte[] byteRead = new byte[1024];
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (FileInputStream in = new FileInputStream(this.file)) {
                 int length = in.read(byteRead);
                 System.out.println("读取数据为：" + new String(byteRead, 0, length));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法读取！");
             System.exit(0);
         }
@@ -165,28 +169,28 @@ class BufferExample extends BaseFile implements FileOperation {
 
     public void writeSomeToFile() {
         String content = "Java纯面向对象这一点非常纯粹";
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.file))) {
                 bufferedWriter.write(content);
                 System.out.println("数据已成功写入！");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法写入！");
             System.exit(0);
         }
     }
 
     public void readSomeFromFile() {
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (BufferedReader bufferedReader = new BufferedReader(new FileReader(this.file))) {
                 String readResult = bufferedReader.readLine();
                 System.out.println("文件中的数据为：" + readResult);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法读取！");
             System.exit(0);
         }
@@ -202,14 +206,14 @@ class BufferStreamExample extends BaseFile implements FileOperation {
     public void writeSomeToFile() {
         String content = "Python体现着简洁，优雅，快速";
         byte[] byteContent = content.getBytes();
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(this.file))) {
                 bos.write(byteContent);
                 System.out.println("数据已写入！");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法写入！");
             System.exit(0);
         }
@@ -217,14 +221,14 @@ class BufferStreamExample extends BaseFile implements FileOperation {
 
     public void readSomeFromFile() {
         byte[] byteRead = new byte[1024];
-        if(this.file.exists()) {
+        if (this.file.exists()) {
             try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(this.file))) {
                 int length = bis.read(byteRead);
                 System.out.println("文件数据为：" + new String(byteRead, 0, length));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             System.out.println("文件不存在，无法读取！");
             System.exit(0);
         }

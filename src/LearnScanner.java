@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
 
+/**
+ * Create by xuefeng on 2023.1.29
+ */
+
 public class LearnScanner {
 
     void learnScannerNext() {

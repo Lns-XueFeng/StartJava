@@ -1,3 +1,7 @@
+/**
+ * Create by xuefeng on 2023.1.30
+ */
+
 public class MultiStatusDemo {
     public static void main(String[] args) {
         Master master = new Master();
