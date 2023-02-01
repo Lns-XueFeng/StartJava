@@ -23,7 +23,6 @@ public class Player {
     }
 }
 
-
 // public
 class AudioPlayer {
     // public别的包可访问可继承，包内也是
@@ -39,7 +38,6 @@ class AudioPlayer {
         return "Audio is dealing...";
     }
 }
-
 
 class StreamAudioPlayer extends AudioPlayer {
     public boolean openSpeaker(Speaker sp) {
@@ -67,7 +65,6 @@ class VideoPlayer {
     }
 }
 
-
 class StreamVideoPlayer extends VideoPlayer {
     protected boolean openSpeaker(Speaker sp) {
         return !sp.openSpeaker();
@@ -93,11 +90,9 @@ class PicturePlayer {
     }
 }
 
-
 class StreamPicturePlayer extends PicturePlayer {
     // 无法继承PicturePlayer中private修饰的方法
 }
-
 
 class Speaker {
     boolean openSpeaker() {
@@ -109,12 +104,10 @@ class Speaker {
     }
 }
 
-
 abstract class File {
     protected abstract void open();
     protected abstract void close();
 }
-
 
 class TextFile extends File {
     protected void open() {
@@ -125,7 +118,6 @@ class TextFile extends File {
         // ......
     }
 }
-
 
 class VideoFile extends File {
     protected void open() {
