@@ -1,3 +1,5 @@
+package main.Java.com.test.basic;
+
 import java.util.Scanner;
 
 

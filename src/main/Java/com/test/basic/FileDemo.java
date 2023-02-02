@@ -1,3 +1,5 @@
+package main.Java.com.test.basic;
+
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.File;
@@ -13,6 +15,7 @@ import java.io.BufferedReader;
 // 第四种
 import java.io.BufferedOutputStream;
 import java.io.BufferedInputStream;
+import java.nio.file.Files;
 
 
 /**
@@ -35,7 +38,7 @@ public class FileDemo {
 }
 
 class Operate {
-    void operate(FileOperation fileOperation) throws FileNotFoundException {
+    void operate(FileOperation fileOperation) {
         fileOperation.createNewFile();
         fileOperation.writeSomeToFile();
         fileOperation.readSomeFromFile();
@@ -44,7 +47,7 @@ class Operate {
 
 interface FileOperation {
     void createNewFile();
-    void writeSomeToFile() throws FileNotFoundException;
+    void writeSomeToFile();
     void readSomeFromFile();
 }
 
@@ -207,7 +210,7 @@ class BufferStreamExample extends BaseFile implements FileOperation {
         String content = "Python体现着简洁，优雅，快速";
         byte[] byteContent = content.getBytes();
         if (this.file.exists()) {
-            try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(this.file))) {
+            try (BufferedOutputStream bos = new BufferedOutputStream(Files.newOutputStream(this.file.toPath()))) {
                 bos.write(byteContent);
                 System.out.println("数据已写入！");
             } catch (IOException e) {
@@ -222,7 +225,7 @@ class BufferStreamExample extends BaseFile implements FileOperation {
     public void readSomeFromFile() {
         byte[] byteRead = new byte[1024];
         if (this.file.exists()) {
-            try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(this.file))) {
+            try (BufferedInputStream bis = new BufferedInputStream(Files.newInputStream(this.file.toPath()))) {
                 int length = bis.read(byteRead);
                 System.out.println("文件数据为：" + new String(byteRead, 0, length));
             } catch (IOException e) {

@@ -1,3 +1,5 @@
+package main.Java.com.test.basic;
+
 /**
  * Create by xuefeng on 2023.1.27
  */
@@ -6,7 +8,7 @@ public class Puppy {
     int puppyAge;
 
     public Puppy(String name){
-        System.out.println("The Puppy is " + name);
+        System.out.println("The main.Java.com.test.basic.Puppy is " + name);
     }
 
     public void setPuppyAge(int age){
